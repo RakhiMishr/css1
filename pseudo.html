@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        button:hover{
+            background-color: blue;
+            cursor:pointer;
+        }
+        input:focus{
+            width: 200px;
+            height: 200px;
+            border:none;
+            outline: 0;
+            cursor:pointer;
+            color:blueviolet;
+            font-size: 20px;
+        } 
+        div :first-child{
+            color: chartreuse;
+         } 
+          div:nth-child(n+1){
+            font-size: 30px;
+            color: aqua;
+         }
+         div :not(:first-child){
+        background-color: rgb(14, 5, 94);
+         } 
+         div p:first-of-type{
+            font-size: 2em;
+         }
+         
+    </Style>
+</head>
+<body>
+     <input type="text" placeholder="name" required>
+    <button>Button</button> 
+    <div>
+        <h1>bhaiya</h1>
+        <h1>bhai</h1>
+        <h1>Rakhi</h1>
+        <p>shivani</p>
+        <p>karan</p>
+    </div>
+</body>
+</html>
