@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height:100vh;
+    background-image: url(l.jpeg);
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+header{
+    background-color:#ccc;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
+}
+header h2{
+    user-select: none;
+    font-size: 30px;
+}
+header nav{
+    display:flex;
+}
+header nav> li{
+    list-style: none;
+    margin:0 30px;
+    padding: 10px;
+    position: relative;
+}
+header nav> li> a{
+    text-decoration: none;
+    font-size: 1.2em;
+}
+header nav> li> a> i{
+    margin-right: 5px;
+}
+header nav >li> a:hover{
+    color: rgb(255, 0, 149);
+}
+header nav >li> a:hover{
+    border-bottom: 2px solid black;
+    
+}
+header nav >li:hover .fa-arrow-down{
+    border-bottom: 2px solid black;
+    transform: rotate(180deg);
+    transition: all 1s ;
+}
+header nav> li > ul{
+    display: none;
+    position: absolute;
+    background-color: #ccc;
+}
+header nav> li > ul > li{
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    width: 100px;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+header nav> li > ul > li.fa-arrow-down{
+    margin: 0 5px;
+    
+}
+header nav > li:hover > ul{
+    display: block;
+}
+header nav> li> ul> li> ol{
+    list-style: none;
+    position: absolute;
+    right:100px;
+    width: 100px;
+    background-color: #ccc;
+    display: none;
+}
+header nav> li> ul> li> ol> li{
+    padding: 10px;
+    margin: 0;
+    width: 100px;
+    border-bottom: 2px solid black;
+    text-align: center;
+    
+}
+
+header nav > li> ul> li:hover ol{
+    display: block;
+}
