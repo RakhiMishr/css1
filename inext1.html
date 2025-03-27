@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aptron</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+
+                <img class="navbar-brand"
+                    src="data:image/png;base64,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"
+                    alt="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Courses
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#courses">Java</a></li>
+                                <li><a class="dropdown-item" href="#courses">Python </a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#courses">Java Script</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#contact">Contact US</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <!-- carousel -->
+    <section>
+        <div id="carouselExampleCaptions" data-aos="fade-up" data-aos-duration="2000" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/4.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/5.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/6.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </section>
+
+    <!-- service -->
+    <section class="container" id="services">
+        <h2 class="text-center mt-5">Services</h2>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-up" data-aos-duration="3000" style="width: 18rem;">
+                    <img src="images/f.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Courses se fake</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-up" data-aos-duration="3000" style="width: 18rem;">
+                    <img src="images/f.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Placement</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-up" data-aos-duration="3000" style="width: 18rem;">
+                    <img src="images/f.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-up" data-aos-duration="3000" style="width: 18rem;">
+                    <img src="images/f.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Placement</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-up" data-aos-duration="3000" style="width: 18rem;">
+                    <img src="images/f.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Placement</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-up" data-aos-duration="3000" style="width: 18rem;">
+                    <img src="images/f.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Placement</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+          
+
+        </div>
+
+    </section>
+
+
+    <!-- Courses -->
+
+    <section class="container" id="courses">
+        <h2 class="text-center mt-5">Courses</h2>
+        <hr>
+
+        <div class="row">
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto"data-aos="fade-left"
+                data-aos-anchor="#example-anchor"
+                data-aos-offset="500"
+                data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">Java</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Java is a powerful and versatile programming language .ss</h6>
+                        <p class="card-text">SAFE JAVA IS ASECURE PROGRAMMING LANGUAGE,WHICH ENSURES THE SECURITY OF DATA.
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto " data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">python</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Python is a powerful,high-level,and versatile programming language.</h6>
+                        <p class="card-text">python's syntax is similar to english, making the code easier to read and understand.
+                            </p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">javascript</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">JS is a programming language that works together with HTML and CSS in web .</h6>
+                        <p class="card-text">javascript is a high-level,interpreted programming language that conforms to the ECMAScript specification.
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">C#</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">c# is a programming language that works together with HTML and CSS in web .</h6>
+                        <p class="card-text">A language based on microsoft's net frameword, stem software,and hight-performance application.                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">kotlin</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">kotlin is a programming language that works together with HTML and CSS in web .</h6>
+                        <p class="card-text">language used for Anderoid app development</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">                         <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">swift</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">swift is a programming language that works together with HTML and CSS in web .</h6>
+                        <p class="card-text">A language used for app development for Apple products.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">Ruby</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Ruby is a programming language that works together with HTML and CSS in web .</h6>
+                        <p class="card-text">A popular programming language that is used for web development and other purposes.
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">R:</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">R: is a programming language that works together with HTML and CSS in web .</h6>
+                        <p class="card-text">A language and environment for statistical computing and graphics.
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card mx-auto" data-aos="fade-left" data-aos-anchor="#example-anchor" data-aos-offset="500"
+                    data-aos-duration="500" style="width: 18rem;">
+                    <div class="card-body">
+                        <img src="images/g.jpg" alt="">
+
+                        <h5 class="card-title">PHP</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">PHP is a programming language that works together with HTML and CSS in web .</h6>
+                        <p class="card-text">A server-side language, PHP is used to create dynamic web pages that can interact with databases.
+                            the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </div>
+            </div>
+
+        
+        </div>
+
+    </section>
+
+
+    <!-- contact US -->
+
+    <section class="container" id="contact">
+        <h2 class="text-center mt-5">Contact US</h2>
+        <hr>
+        <div class="row">
+            <div class=" col-md-6"  data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000">
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Name</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="search">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-success w-100">Success</button>
+
+            </div>
+            <div class="col-md-6 text-center my-img-div"  data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000">
+                <img src="images/1000002232.jpg" class="img-fluid mypic" id="img">
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- footer -->
+
+    <footer class="container-fluid bg-dark text-white text-center p-3 mt-5">
+        <p>Copy Right &copy; 2025</p>
+
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
