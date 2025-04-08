@@ -1,0 +1,26 @@
+header img {
+    width: 60px;
+}
+
+.carousel-inner .carousel-item img {
+
+    height: 80vh;
+    object-fit: cover;
+}
+
+.my-img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#id{
+    border-radius: 50%;
+}
+
+@media screen and (max-width:992px) {
+    .carousel-inner .carousel-item img {
+        height: 50vh;
+    }
+
+}
